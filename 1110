@@ -1,0 +1,89 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Node {
+    int value;
+    struct Node* next;
+} Node;
+
+typedef struct {
+    Node* head;
+    Node* tail;
+    int size;
+} Queue;
+
+void initQueue(Queue* q) {
+    q->head = NULL;
+    q->tail = NULL;
+    q->size = 0;
+}
+
+void push(Queue* q, int val) {
+    Node* newNode = (Node*)malloc(sizeof(Node));
+    newNode->value = val;
+    newNode->next = NULL;
+
+    if (q->tail == NULL) {
+        q->head = newNode;
+        q->tail = newNode;
+    } else {
+        q->tail->next = newNode;
+        q->tail = newNode;
+    }
+    q->size++;
+}
+
+int pop(Queue* q) {
+    Node* temp;
+    int val;
+
+    if (q->head == NULL) return -1;
+
+    temp = q->head;
+    val = temp->value;
+
+    q->head = q->head->next;
+
+    if (q->head == NULL) {
+        q->tail = NULL;
+    }
+
+    free(temp);
+    q->size--;
+
+    return val;
+}
+
+int main() {
+    int n;
+    int i;
+    int first;
+    Queue cards;
+
+    while (scanf("%d", &n) == 1 && n != 0) {
+        initQueue(&cards);
+
+        // Preenche a fila
+        for (i = 1; i <= n; i++) {
+            push(&cards, i);
+        }
+
+        printf("Discarded cards:");
+        first = 1;
+
+        // Simulação do descarte
+        while (cards.size > 1) {
+            if (!first) {
+                printf(",");
+            }
+            printf(" %d", pop(&cards));
+            first = 0;
+
+            push(&cards, pop(&cards));
+        }
+
+        printf("\nRemaining card: %d\n", pop(&cards));
+    }
+
+    return 0;
+}
