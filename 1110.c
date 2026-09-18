@@ -1,3 +1,13 @@
+/* --------------------------------------------------------------------------
+Disciplina  : Algortimo e Estrutura de Dados 2026S1
+Nome        : Leonardo Freire Meira
+Linguagem   : C
+Problema    : https://judge.beecrowd.com/pt/problems/view/1110
+Data        : 18/09/2026
+Objetivo    : fazer o reordenamento das cartas de um baralho.
+Dificuldade : Entender
+Uso de IA   : 
+-------------------------------------------------------------------------- */
 #include <stdio.h>
 #include <stdlib.h>
 
