@@ -1,3 +1,13 @@
+/* --------------------------------------------------------------------------
+Disciplina  : Algortimo e Estrutura de Dados 2026S1
+Nome        : Leonardo Freire Meira
+Linguagem   : C
+Problema    : https://judge.beecrowd.com/pt/problems/view/1383
+Data        : 20/08/2026
+Objetivo    : Testar se a  sequencia do sudoku esta certa.
+Dificuldade : Pensar na logica.
+Uso de IA   : Ajudar a ver todas as partes que tinham que mudar.
+-------------------------------------------------------------------------- */
 #include <stdio.h>
 #include <stdlib.h>
 int valido(int *a){
