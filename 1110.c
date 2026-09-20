@@ -12,54 +12,54 @@ Uso de IA   : Dizer o que tinha que fazer e ensinar esses novos comandos de list
 #include <stdlib.h>
 
 typedef struct no {
-    int value;
-    struct no* next;
+    int valor;
+    struct no* proximo;
 } no;
 
 typedef struct {
-    no* head;
-    no* tail;
-    int size;
+    no* cabeca;
+    no* fim;
+    int tamanho;
 } fila;
 
 void initfila(fila *q) {
-    q->head = NULL;
-    q->tail = NULL;
-    q->size = 0;
+    q->cabeca = NULL;
+    q->fim = NULL;
+    q->tamanho = 0;
 }
 
-void push(fila *q, int val) {
+void insercaofim(fila *q, int val) {
     no *novono = (no*)malloc(sizeof(no));
-    novono->value = val;
-    novono->next = NULL;
+    novono->valor = val;
+    novono->proximo = NULL;
 
-    if (q->tail == NULL) {
-        q->head = novono;
-        q->tail = novono;
+    if (q->fim == NULL) {
+        q->cabeca = novono;
+        q->fim = novono;
     } else {
-        q->tail->next = novono;
-        q->tail = novono;
+        q->fim->proximo = novono;
+        q->fim = novono;
     }
-    q->size++;
+    q->tamanho++;
 }
 
-int pop(fila* q) {
+int remocaoinicio(fila* q) {
     no* temp;
     int val;
 
-    if (q->head == NULL) return -1;
+    if (q->cabeca == NULL) return -1;
 
-    temp = q->head;
-    val = temp->value;
+    temp = q->cabeca;
+    val = temp->valor;
 
-    q->head = q->head->next;
+    q->cabeca = q->cabeca->proximo;
 
-    if (q->head == NULL) {
-        q->tail = NULL;
+    if (q->cabeca == NULL) {
+        q->fim = NULL;
     }
 
     free(temp);
-    q->size--;
+    q->tamanho--;
 
     return val;
 }
@@ -67,32 +67,30 @@ int pop(fila* q) {
 int main() {
     int n;
     int i;
-    int first;
-    fila cards;
+    int primeiro;
+    fila cartas;
 
     while (scanf("%d", &n) == 1 && n != 0) {
-        initfila(&cards);
+        initfila(&cartas);
 
-        // Preenche a fila
         for (i = 1; i <= n; i++) {
-            push(&cards, i);
+            insercaofim(&cartas, i);
         }
 
         printf("Discarded cards:");
-        first = 1;
+        primeiro = 1;
 
-        // Simulação do descarte
-        while (cards.size > 1) {
-            if (!first) {
+        while (cartas.tamanho > 1) {
+            if (!primeiro) {
                 printf(",");
             }
-            printf(" %d", pop(&cards));
-            first = 0;
+            printf(" %d", remocaoinicio(&cartas));
+            primeiro = 0;
 
-            push(&cards, pop(&cards));
+            insercaofim(&cartas, remocaoinicio(&cartas));
         }
 
-        printf("\nRemaining card: %d\n", pop(&cards));
+        printf("\nRemaining card: %d\n", remocaoinicio(&cartas));
     }
 
     return 0;
