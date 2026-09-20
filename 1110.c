@@ -5,46 +5,46 @@ Linguagem   : C
 Problema    : https://judge.beecrowd.com/pt/problems/view/1110
 Data        : 18/09/2026
 Objetivo    : fazer o reordenamento das cartas de um baralho.
-Dificuldade : Entender
-Uso de IA   : 
+Dificuldade : Entender como usar listas encadeadas
+Uso de IA   : Dizer o que tinha que fazer e ensinar esses novos comandos de listas encadeadas.
 -------------------------------------------------------------------------- */
 #include <stdio.h>
 #include <stdlib.h>
 
-typedef struct Node {
+typedef struct no {
     int value;
-    struct Node* next;
-} Node;
+    struct no* next;
+} no;
 
 typedef struct {
-    Node* head;
-    Node* tail;
+    no* head;
+    no* tail;
     int size;
-} Queue;
+} fila;
 
-void initQueue(Queue* q) {
+void initfila(fila *q) {
     q->head = NULL;
     q->tail = NULL;
     q->size = 0;
 }
 
-void push(Queue* q, int val) {
-    Node* newNode = (Node*)malloc(sizeof(Node));
-    newNode->value = val;
-    newNode->next = NULL;
+void push(fila *q, int val) {
+    no *novono = (no*)malloc(sizeof(no));
+    novono->value = val;
+    novono->next = NULL;
 
     if (q->tail == NULL) {
-        q->head = newNode;
-        q->tail = newNode;
+        q->head = novono;
+        q->tail = novono;
     } else {
-        q->tail->next = newNode;
-        q->tail = newNode;
+        q->tail->next = novono;
+        q->tail = novono;
     }
     q->size++;
 }
 
-int pop(Queue* q) {
-    Node* temp;
+int pop(fila* q) {
+    no* temp;
     int val;
 
     if (q->head == NULL) return -1;
@@ -68,10 +68,10 @@ int main() {
     int n;
     int i;
     int first;
-    Queue cards;
+    fila cards;
 
     while (scanf("%d", &n) == 1 && n != 0) {
-        initQueue(&cards);
+        initfila(&cards);
 
         // Preenche a fila
         for (i = 1; i <= n; i++) {
