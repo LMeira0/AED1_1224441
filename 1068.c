@@ -10,7 +10,6 @@ Uso de IA   : Dizer o que tinha que fazer e ensinar esses novos comandos de pilh
 -------------------------------------------------------------------------- */
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 typedef struct no {
     char data;
