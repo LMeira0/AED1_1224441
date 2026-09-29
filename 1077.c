@@ -5,13 +5,11 @@
 
 #define MAX 1000
 
-// Definicao da estrutura de Pilha
 typedef struct {
     char itens[MAX];
     int topo;
 } Pilha;
 
-// Operacoes da Pilha
 void inicializar(Pilha *p) {
     p->topo = -1;
 }
@@ -40,7 +38,6 @@ char espiarTopo(Pilha *p) {
     return '\0';
 }
 
-// Retorna a prioridade do operador
 int precedencia(char op) {
     if (op == '^') return 3;
     if (op == '*' || op == '/') return 2;
@@ -55,24 +52,20 @@ void infixaParaPosfixa(const char *expr) {
     for (int i = 0; expr[i] != '\0' && expr[i] != '\n' && expr[i] != '\r'; i++) {
         char c = expr[i];
 
-        // 1. Operando: imprime diretamente
         if (isalnum(c)) {
             putchar(c);
         }
-        // 2. Parêntese de abertura: empilha
         else if (c == '(') {
             push(&p, c);
         }
-        // 3. Parêntese de fechamento: desempilha ate '('
         else if (c == ')') {
             while (!estaVazia(&p) && espiarTopo(&p) != '(') {
                 putchar(pop(&p));
             }
             if (!estaVazia(&p) && espiarTopo(&p) == '(') {
-                pop(&p); // Descarta '('
+                pop(&p);
             }
         }
-        // 4. Operador
         else {
             while (!estaVazia(&p) && espiarTopo(&p) != '(' && precedencia(espiarTopo(&p)) >= precedencia(c)) {
                 putchar(pop(&p));
@@ -81,7 +74,6 @@ void infixaParaPosfixa(const char *expr) {
         }
     }
 
-    // 5. Esvazia o restante da pilha
     while (!estaVazia(&p)) {
         putchar(pop(&p));
     }
