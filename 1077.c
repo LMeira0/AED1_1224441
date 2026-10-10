@@ -1,3 +1,13 @@
+/* --------------------------------------------------------------------------
+Disciplina  : Algortimo e Estrutura de Dados 2026S1
+Nome        : Leonardo Freire Meira
+Linguagem   : C
+Problema    : https://judge.beecrowd.com/pt/problems/view/1077
+Data        : 10/10/2026
+Objetivo    : Converter expressões algébricas da notação infixa para a notação posfixa.
+Dificuldade : Em tudo.
+Uso de IA   : Saber como que tinha que fazer.
+-------------------------------------------------------------------------- */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
