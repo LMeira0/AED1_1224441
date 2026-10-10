@@ -1,3 +1,13 @@
+/* --------------------------------------------------------------------------
+Disciplina  : Algortimo e Estrutura de Dados 2026S1
+Nome        : Leonardo Freire Meira
+Linguagem   : C
+Problema    : https://judge.beecrowd.com/pt/problems/view/1062
+Data        : 10/10/2026
+Objetivo    : Organizar a saida dos vagoes da estacao.
+Dificuldade : Entender como usar o pop e push nesse caso.
+Uso de IA   : Saber o que tinah que fazer na funcao main e comentar o codigo.
+-------------------------------------------------------------------------- */
 #include <stdio.h>
 #include <stdlib.h>
 
