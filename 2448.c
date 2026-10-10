@@ -1,3 +1,13 @@
+/* --------------------------------------------------------------------------
+Disciplina  : Algortimo e Estrutura de Dados 2026S1
+Nome        : Leonardo Freire Meira
+Linguagem   : C
+Problema    : https://judge.beecrowd.com/pt/problems/view/1077
+Data        : 10/10/2026
+Objetivo    : Fazer uma busca binaria.
+Dificuldade : Quase nada, usei o slide pra fazer.
+Uso de IA   : Nada.
+-------------------------------------------------------------------------- */
 #include <stdio.h>
 #include <stdlib.h> 
 
