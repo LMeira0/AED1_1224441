@@ -34,18 +34,14 @@ int tem_ciclo(int u) {
     No* atual = grafo[u];
     while (atual != NULL) {
         int v = atual->destino;
-
         if (estado[v] == 1) {
             return 1;
         }
-
         if (estado[v] == 0 && tem_ciclo(v)) {
             return 1;
         }
-
         atual = atual->prox;
     }
-
     estado[u] = 2;
     return 0;
 }
@@ -66,22 +62,18 @@ void limpar_grafo(int n) {
 int main() {
     int t;
     scanf("%d", &t);
-
     while (t--) {
         int n, m;
         scanf("%d %d", &n, &m);
-
         for (int i = 1; i <= n; i++) {
             grafo[i] = NULL;
             estado[i] = 0;
         }
-
         for (int i = 0; i < m; i++) {
             int a, b;
             scanf("%d %d", &a, &b);
             adicionar_aresta(a, b);
         }
-
         int encontrou_ciclo = 0;
         for (int i = 1; i <= n; i++) {
             if (estado[i] == 0) {
@@ -91,15 +83,12 @@ int main() {
                 }
             }
         }
-
         if (encontrou_ciclo) {
             printf("SIM\n");
         } else {
             printf("NAO\n");
         }
-
         limpar_grafo(n);
     }
-
     return 0;
 }
