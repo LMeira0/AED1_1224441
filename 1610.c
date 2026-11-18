@@ -1,4 +1,13 @@
-
+/* --------------------------------------------------------------------------
+Disciplina  : Algoritmo e Estrutura de Dados 2026S1
+Nome        : Leonardo Freire Meira
+Linguagem   : C
+Problema    : https://judge.beecrowd.com/pt/problems/view/1610
+Data        : 18/11/2026
+Objetivo    : Verificar se existe um ciclo de dependências entre os documentos.
+Dificuldade : Montar o grafo com lista encadeada e detectar ciclos usando DFS.
+Uso de IA   : Explicar a lógica para achar ciclos em grafos e estruturar o código.
+-------------------------------------------------------------------------- */
 #include <stdio.h>
 #include <stdlib.h>
 
